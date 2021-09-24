@@ -75,15 +75,28 @@
     <Compile Include="Commons\BaseTest.cs" />
     <Compile Include="Commons\Browser.cs" />
     <Compile Include="Commons\Constants.cs" />
+    <Compile Include="Commons\DB_Access.cs" />
+    <Compile Include="Commons\ExcelData.cs" />
     <Compile Include="Commons\GenerateReports.cs" />
     <Compile Include="Commons\HandleAlert.cs" />
     <Compile Include="Commons\HandleDropdown.cs" />
     <Compile Include="Commons\HandleFrames.cs" />
     <Compile Include="Commons\HandlingJavaScript.cs" />
     <Compile Include="Commons\TakeScreenshots.cs" />
-    <Compile Include="POMClasses\Accountant\Accountant_Invoice_Page.cs" />
+    <Compile Include="POMClasses\AccountantModule\Accountant_Invoice_Page.cs" />
+    <Compile Include="POMClasses\AdminModule\Admin_Accountant_Page.cs" />
     <Compile Include="POMClasses\AdminModule\Admin_Department_Page.cs" />
     <Compile Include="POMClasses\AdminModule\Admin_Doctor_Page.cs" />
+    <Compile Include="POMClasses\AdminModule\Admin_Laboratorist_Page.cs" />
+    <Compile Include="POMClasses\AdminModule\Admin_Nurse_Page.cs" />
+    <Compile Include="POMClasses\AdminModule\Admin_Patient_Page.cs" />
+    <Compile Include="POMClasses\AdminModule\Admin_Pharmacist_Page.cs" />
+    <Compile Include="POMClasses\AdminModule\Admin_Receptionist_Page.cs" />
+    <Compile Include="POMClasses\AdminModule\MonitorHospital\Admin_ManageHospital_BloodBank_Page.cs" />
+    <Compile Include="POMClasses\AdminModule\MonitorHospital\Admin_ManageHospital_Medicine_Page.cs" />
+    <Compile Include="POMClasses\AdminModule\MonitorHospital\Admin_ManageHospital_PaymentHistory.cs" />
+    <Compile Include="POMClasses\DoctorModule\Doctor_BedAllotment_Page.cs" />
+    <Compile Include="POMClasses\DoctorModule\Doctor_BloodBank_Page.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestRepo\AccountantTests\Accountant_Invoice_Tests.cs" />
     <Compile Include="TestRepo\AdminTests\Admin_Department_Tests.cs" />
@@ -94,14 +107,20 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="POMClasses\DoctorModule\" />
+    <Folder Include="POMClasses\LaboratoristModule\" />
+    <Folder Include="POMClasses\NurseModule\" />
     <Folder Include="POMClasses\PatientModule\" />
+    <Folder Include="POMClasses\PharmacistModule\" />
+    <Folder Include="POMClasses\ReceptionistModule\" />
     <Folder Include="Reports\" />
     <Folder Include="Screenshots\FailedScreenshots\" />
     <Folder Include="Screenshots\SkippedScreenshots\" />
     <Folder Include="TestRepo\DoctorTests\" />
-    <Folder Include="TestRepo\Nurse\" />
+    <Folder Include="TestRepo\LaboratoristTests\" />
+    <Folder Include="TestRepo\NurseTests\" />
     <Folder Include="TestRepo\PatientTests\" />
+    <Folder Include="TestRepo\Pharmacist\" />
+    <Folder Include="TestRepo\Receptionist\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NewFolder1\RelevantCodes.ExtentReports.dll" />

@@ -21,17 +21,19 @@ namespace TY_Selenium_UnitTest.POMClasses.Accountant
         private IWebElement AddInvoiceLink { get; set; }
         [FindsBy(How = How.Name, Using = "title")]
         private IWebElement InvoiceNametbx { get; set; }
-        [FindsBy(How = How.XPath, Using = "//span[text()='Select A Patient']")]
+        [FindsBy(How = How.Name, Using = "patient_id")]
         private IWebElement SelectPatientdd { get; set; }
-        [FindsBy(How = How.XPath, Using = "//span[contains(.,'Tanvir Hasan')]")]
-        private IWebElement SelectParticularPatient { get; set; }
+        //[FindsBy(How = How.XPath, Using = "//span[contains(.,'Tanvir Hasan')]")]
+        //private IWebElement SelectParticularPatient { get; set; }
        
-        [FindsBy(How = How.XPath, Using = "//span[text()='Select A Status']")]
+        [FindsBy(How = How.Name, Using = "status")]
         private IWebElement SelectPaymentdd { get; set; }
         [FindsBy(How = How.XPath, Using = "//span[text()='Paid']")]
         private IWebElement SelectPaidStatus{ get; set; }
         [FindsBy(How = How.XPath, Using = "//button[contains(.,'Create New Invoice')]")]
         private IWebElement CreateNewInvoivebtn { get; set; }
+        [FindsBy(How = How.XPath, Using = "//div[@class='toast-message']")]
+        private IWebElement CreateNewInvoiveSuccessMsg { get; set; }
 
 
         public Accountant_Invoice_Page()
@@ -40,7 +42,7 @@ namespace TY_Selenium_UnitTest.POMClasses.Accountant
 
         }
 
-        public void Accountant_Add_Invoice(string InvTitle)
+        public bool Accountant_Add_Invoice(string InvTitle)
         {
             Thread.Sleep(2000);
             InvoiceLink.Click();
@@ -49,17 +51,33 @@ namespace TY_Selenium_UnitTest.POMClasses.Accountant
             Thread.Sleep(2000);
             InvoiceNametbx.SendKeys(InvTitle);
             Thread.Sleep(2000);
-            Actions actions = new Actions(Browser.driver);
-            actions.Click(SelectPatientdd).Perform();
+            HandleDropdown.SelectByValue(SelectPatientdd, "2");
             Thread.Sleep(2000);
+            HandleDropdown.SelectByText(SelectPaymentdd, "Paid");
 
-            actions.Click(SelectParticularPatient).Perform();
-            Thread.Sleep(2000);
-            actions.Click(SelectPaymentdd).Perform();
-            Thread.Sleep(2000);
-            actions.Click(SelectPaidStatus);
+            //Actions actions = new Actions(Browser.driver);
+            //actions.Click(SelectPatientdd).Perform();
+            //Thread.Sleep(2000);
+
+            //actions.Click(SelectParticularPatient).Perform();
+            //Thread.Sleep(2000);
+            //actions.Click(SelectPaymentdd).Perform();
+            //Thread.Sleep(2000);
+            //actions.Click(SelectPaidStatus);
             Thread.Sleep(2000);
             CreateNewInvoivebtn.Click();
+            Browser.driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+          bool result=  CreateNewInvoiveSuccessMsg.Displayed;
+            if(result)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
 
         }
 

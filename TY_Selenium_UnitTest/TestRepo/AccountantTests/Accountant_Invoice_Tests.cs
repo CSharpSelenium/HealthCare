@@ -17,7 +17,8 @@ namespace TY_Selenium_UnitTest.TestRepo.AccountantTests
         public void Accountant_AddInvoice_Test()
         {
             Accountant_Invoice_Page accountant_Invoice_Page = new Accountant_Invoice_Page();
-            accountant_Invoice_Page.Accountant_Add_Invoice("Test Title");
+            bool result=   accountant_Invoice_Page.Accountant_Add_Invoice("Test Title");
+            Assert.IsTrue(result);
 
         }
 
